@@ -13,7 +13,7 @@ export default function HomePage() {
         <div className="relative container mx-auto px-4 py-20 lg:py-32">
           <div className="max-w-4xl mx-auto text-center">
             <Badge className="bg-green-500/20 text-green-400 border-green-500/30 mb-6">
-              Más de 15 años de experiencia
+              Más de 30 años de experiencia
             </Badge>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance">
               Soluciones de <span className="text-green-500">Grúas Industriales</span> de Clase Mundial
@@ -101,7 +101,7 @@ export default function HomePage() {
 
               <div className="space-y-4">
                 {[
-                  "Más de 15 años de experiencia en el sector industrial",
+                  "Más de 30 años de experiencia en el sector industrial",
                   "Flota moderna y certificada con mantenimiento riguroso",
                   "Operadores altamente capacitados y certificados",
                   "Cobertura nacional con respuesta rápida",
