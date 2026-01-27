@@ -24,3 +24,10 @@
   right: 0;
   background: linear-gradient(270deg, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0) 100%);
 }
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

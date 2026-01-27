@@ -118,7 +118,32 @@ export function PassionSection() {
             <h2 className="text-xl font-semibold">Sponsors</h2>
             <span className="text-xs text-gray-400">Los que confían en nuestro trabajo</span>
           </div>
-          <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-r from-slate-900 via-slate-900/80 to-slate-900 px-4 py-4 shadow-inner">
+          {/* Mobile: scrollable row */}
+          <div className="md:hidden overflow-x-auto no-scrollbar rounded-2xl border border-slate-800 bg-gradient-to-r from-slate-900 via-slate-900/80 to-slate-900 px-3 py-3">
+            <div className="flex gap-3 pr-3">
+              {sponsors.map((sponsor) => (
+                <div
+                  key={`m-${sponsor.id}`}
+                  className="relative h-18 w-36 shrink-0 rounded-xl border border-slate-700/70 bg-slate-900/80 overflow-hidden shadow-md shadow-black/30 backdrop-blur"
+                >
+                  <Image
+                    src={sponsor.logo}
+                    alt={sponsor.name}
+                    fill
+                    className="object-contain p-4 grayscale-[15%]"
+                    sizes="140px"
+                  />
+                  <div className="absolute inset-0 bg-slate-950/5" />
+                  <div className="absolute bottom-2 left-2 right-2 text-[10px] text-center text-gray-200 tracking-[0.12em] uppercase font-semibold px-2 py-1 bg-slate-950/70 rounded">
+                    {sponsor.name}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop: marquee */}
+          <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-r from-slate-900 via-slate-900/80 to-slate-900 px-4 py-4 shadow-inner hidden md:block">
             <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-slate-950 to-transparent" />
             <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-slate-950 to-transparent" />
             <div className="flex gap-4 min-w-[200%] animate-[marquee_26s_linear_infinite] whitespace-nowrap">
