@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Phone, Mail, MapPin, Clock } from "lucide-react"
 
 export function Footer() {
@@ -8,19 +9,21 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="bg-green-500 p-2 rounded-lg">
-                <div className="w-8 h-8 bg-white rounded flex items-center justify-center">
-                  <span className="text-slate-900 font-bold text-lg">ATC</span>
-                </div>
-              </div>
+            <div className="flex items-center gap-3 mb-4">
+              <Image
+                src="/logoatc.png"
+                alt="ATC Construcciones"
+                width={70}
+                height={70}
+                className="h-12 sm:h-14 md:h-16 w-auto object-contain"
+              />
               <div>
                 <div className="text-lg font-bold">ATC Construcciones</div>
                 <div className="text-green-500 text-sm font-medium">Grúas TORRES</div>
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Especialistas en servicios de grúas industriales con más de 15 años de experiencia. Soluciones confiables
+              Especialistas en servicios de grúas industriales con base en Misiones, Argentina. Soluciones confiables
               para grandes empresas.
             </p>
           </div>
@@ -58,7 +61,7 @@ export function Footer() {
             <div className="space-y-3 text-sm">
               <div className="flex items-center gap-3">
                 <Phone className="h-4 w-4 text-green-500 flex-shrink-0" />
-                <span className="text-gray-400">+56 9 1234 5678</span>
+                <span className="text-gray-400">+54 9 3751 415454</span>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-green-500 flex-shrink-0" />
@@ -67,9 +70,9 @@ export function Footer() {
               <div className="flex items-start gap-3">
                 <MapPin className="h-4 w-4 text-green-500 flex-shrink-0 mt-0.5" />
                 <span className="text-gray-400">
-                  Av. Industrial 1234
+                  Puerto Piray, Misiones
                   <br />
-                  Santiago, Chile
+                  Argentina
                 </span>
               </div>
             </div>

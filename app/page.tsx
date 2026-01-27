@@ -23,17 +23,11 @@ export default function HomePage() {
               grandes empresas como Arauco. Confiabilidad y seguridad garantizadas.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 text-lg">
-                Solicitar Cotización
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-slate-900 px-8 py-4 text-lg bg-transparent"
-              >
-                <Phone className="mr-2 h-5 w-5" />
-                Llamar Ahora
+              <Button asChild size="lg" className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 text-lg">
+                <a href="/contacto">
+                  Solicitar Cotización
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </a>
               </Button>
             </div>
           </div>
@@ -124,7 +118,7 @@ export default function HomePage() {
 
               <div className="grid grid-cols-2 gap-6 text-center">
                 <div>
-                  <div className="text-2xl font-bold text-green-500">15+</div>
+                  <div className="text-2xl font-bold text-green-500">30+</div>
                   <div className="text-sm text-gray-300">Años de Experiencia</div>
                 </div>
                 <div>
@@ -136,7 +130,7 @@ export default function HomePage() {
                   <div className="text-sm text-gray-300">Seguridad</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-green-500">50+</div>
+                  <div className="text-2xl font-bold text-green-500">4+</div>
                   <div className="text-sm text-gray-300">Grúas Disponibles</div>
                 </div>
               </div>
@@ -175,15 +169,16 @@ export default function HomePage() {
             Grúas TORRES.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 text-lg">
-              Solicitar Cotización Gratuita
+            <Button asChild size="lg" className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 text-lg">
+              <a href="/contacto">Solicitar Cotización Gratuita</a>
             </Button>
             <Button
+              asChild
               size="lg"
               variant="outline"
               className="border-white text-white hover:bg-white hover:text-slate-900 px-8 py-4 text-lg bg-transparent"
             >
-              Ver Nuestra Flota
+              <a href="/flota">Ver Nuestra Flota</a>
             </Button>
           </div>
         </div>

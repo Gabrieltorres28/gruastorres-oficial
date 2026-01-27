@@ -120,9 +120,11 @@ export default function ServiciosPage() {
           <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
             Nuestro equipo técnico está listo para evaluar tu proyecto y ofrecerte la mejor solución
           </p>
-          <Button size="lg" className="bg-green-500 hover:bg-green-600 text-white">
-            Solicitar Cotización
-            <ArrowRight className="ml-2 h-4 w-4" />
+          <Button asChild size="lg" className="bg-green-500 hover:bg-green-600 text-white">
+            <a href="/contacto">
+              Solicitar Cotización
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </a>
           </Button>
         </div>
       </section>

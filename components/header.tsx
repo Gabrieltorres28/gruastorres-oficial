@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Phone, Mail } from "lucide-react"
+import { Menu, X, Mail } from "lucide-react"
 import Image from "next/image"
 
 export function Header() {
@@ -15,6 +15,7 @@ export function Header() {
     { name: "Flota", href: "/flota" },
     { name: "Industrias", href: "/industrias" },
     { name: "Empresa", href: "/empresa" },
+    { name: "Mi Pasión", href: "/mi-pasion" },
     { name: "Contacto", href: "/contacto" },
   ]
 
@@ -24,14 +25,10 @@ export function Header() {
       <div className="bg-slate-800 py-2">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center text-xs sm:text-sm">
-            <div className="flex items-center gap-4 sm:gap-6">
+            <div className="flex items-center gap-3 sm:gap-4">
               <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-green-500" />
-                <span>+56 9 1234 5678</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-green-500" />
-                <span>contacto@atcconstrucciones.cl</span>
+             
+              
               </div>
             </div>
             <div className="hidden md:block text-green-500 font-medium animate-pulse">
@@ -62,21 +59,31 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-gray-300 hover:text-green-500 transition-all duration-200 font-medium hover:scale-105"
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navigation.map((item) => {
+              const isPassion = item.name === "Mi Pasión"
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`transition-all duration-200 font-medium hover:scale-105 ${
+                    isPassion
+                      ? "text-slate-900 bg-green-400 hover:bg-green-300 px-3 py-1 rounded-full shadow-sm shadow-green-500/30"
+                      : "text-gray-300 hover:text-green-500"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              )
+            })}
           </nav>
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <Button className="bg-green-500 hover:bg-green-600 text-white shadow-md hover:shadow-lg transition-all duration-300">
-              Solicitar Cotización
+            <Button
+              asChild
+              className="bg-green-500 hover:bg-green-600 text-white shadow-md hover:shadow-lg transition-all duration-300"
+            >
+              <Link href="/contacto">Solicitar Cotización</Link>
             </Button>
           </div>
 
@@ -94,23 +101,34 @@ export function Header() {
         {isMenuOpen && (
           <div className="lg:hidden py-4 border-t border-slate-700 animate-fadeIn">
             <nav className="flex flex-col space-y-4 items-center">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="text-gray-300 hover:text-green-500 transition-colors duration-200 font-medium text-lg"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <Button className="bg-green-500 hover:bg-green-600 text-white mt-4 w-11/12 shadow-md hover:shadow-lg">
-                Solicitar Cotización
+              {navigation.map((item) => {
+                const isPassion = item.name === "Mi Pasión"
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className={`transition-colors duration-200 font-medium text-lg ${
+                      isPassion
+                        ? "text-slate-900 bg-green-400 hover:bg-green-300 px-3 py-2 rounded-full"
+                        : "text-gray-300 hover:text-green-500"
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                )
+              })}
+              <Button
+                asChild
+                className="bg-green-500 hover:bg-green-600 text-white mt-4 w-11/12 shadow-md hover:shadow-lg"
+              >
+                <Link href="/contacto">Solicitar Cotización</Link>
               </Button>
             </nav>
           </div>
         )}
       </div>
+
     </header>
   )
 }

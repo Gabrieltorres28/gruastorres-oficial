@@ -93,7 +93,7 @@ export default function IndustriasPage() {
             <Badge className="bg-green-500/20 text-green-400 border-green-500/30 mb-6">Experiencia Sectorial</Badge>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Industrias que Servimos</h1>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Más de 15 años de experiencia atendiendo las necesidades específicas de diferentes sectores industriales
+              Más de 30 años de experiencia atendiendo las necesidades específicas de diferentes sectores industriales
             </p>
           </div>
         </div>
