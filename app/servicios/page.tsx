@@ -1,9 +1,25 @@
+"use client"
+
+import { useEffect, useState } from "react"
+
 import { MainLayout } from "@/components/layout/main-layout"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Cake as Crane, Shield, Wrench, Clock, CheckCircle, ArrowRight } from "lucide-react"
 
 export default function ServiciosPage() {
+  const [isTouch, setIsTouch] = useState(false)
+  const [flippedIndex, setFlippedIndex] = useState<number | null>(null)
+
+  useEffect(() => {
+    // Detect touch / non-hover devices to enable tap-to-flip without affecting desktop hover
+    const mediaQuery = window.matchMedia("(hover: none)")
+    const update = () => setIsTouch(mediaQuery.matches)
+    update()
+    mediaQuery.addEventListener("change", update)
+    return () => mediaQuery.removeEventListener("change", update)
+  }, [])
+
   const services = [
     {
       icon: Crane,
@@ -83,7 +99,11 @@ export default function ServiciosPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {services.map((service, index) => (
               <div key={index} className="group [perspective:1200px]">
-                <div className="relative h-full min-h-[320px] w-full rounded-2xl shadow-lg transition-all duration-500 [transform-style:preserve-3d] group-hover:rotate-y-180">
+                <div
+                  className={`relative h-full min-h-[320px] w-full rounded-2xl shadow-lg transition-all duration-500 [transform-style:preserve-3d] group-hover:rotate-y-180 ${
+                    isTouch && flippedIndex === index ? "rotate-y-180" : ""
+                  }`}
+                >
                   {/* Front */}
                   <div className="absolute inset-0 bg-white rounded-2xl p-6 border border-slate-100 [backface-visibility:hidden] flex flex-col justify-between">
                     <div className="flex items-center gap-4 mb-4">
@@ -98,10 +118,19 @@ export default function ServiciosPage() {
                       </div>
                     </div>
                     <p className="text-gray-600 leading-relaxed">{service.description}</p>
-                    <div className="flex items-center justify-between text-sm text-green-600 font-semibold">
+                    <button
+                      type="button"
+                      onClick={
+                        isTouch
+                          ? () => setFlippedIndex((prev) => (prev === index ? null : index))
+                          : undefined
+                      }
+                      className="flex items-center justify-between text-sm text-green-600 font-semibold w-full text-left"
+                      aria-label="Ver detalles del servicio"
+                    >
                       <span>Ver detalles</span>
                       <ArrowRight className="h-4 w-4" />
-                    </div>
+                    </button>
                   </div>
 
                   {/* Back */}
@@ -120,8 +149,20 @@ export default function ServiciosPage() {
                       ))}
                     </ul>
                     <div className="mt-6 flex items-center justify-between text-sm text-green-300 font-semibold">
+                      <button
+                        type="button"
+                        onClick={
+                          isTouch
+                            ? () => setFlippedIndex((prev) => (prev === index ? null : index))
+                            : undefined
+                        }
+                        className="flex items-center gap-2"
+                        aria-label="Cerrar detalles"
+                      >
+                        <span>Volver</span>
+                        <ArrowRight className="h-4 w-4" />
+                      </button>
                       <span>Listo para tu próximo proyecto</span>
-                      <ArrowRight className="h-4 w-4" />
                     </div>
                   </div>
                 </div>
