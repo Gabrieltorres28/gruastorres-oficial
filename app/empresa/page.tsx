@@ -45,9 +45,9 @@ export default function EmpresaPage() {
           <div className="max-w-4xl mx-auto text-center">
             <Badge className="bg-green-500/20 text-green-400 border-green-500/30 mb-6">Nuestra Historia</Badge>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Acerca de ATC Construcciones</h1>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Más de 15 años de experiencia en servicios de grúas industriales, construyendo relaciones sólidas con las
-              principales empresas del país
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Somos Grúas Torres: movimiento y elevación de cargas con precisión, seguridad y experiencia para obras
+              industriales y maniobras de alta exigencia técnica.
             </p>
           </div>
         </div>
@@ -59,21 +59,32 @@ export default function EmpresaPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Nuestra Historia</h2>
-              <div className="space-y-4 text-gray-600">
+              <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  ATC Construcciones nació en 2008 con la visión de brindar servicios de grúas industriales de la más
-                  alta calidad. Fundada por Armando Torres, la empresa comenzó con un pequeño equipo y la determinación
-                  de establecer nuevos estándares en el sector.
+                  En Grúas Torres somos una empresa con amplia trayectoria en el rubro de movimiento y elevación de
+                  cargas, brindando soluciones seguras y eficientes para obras industriales, montajes especiales y
+                  operaciones de alta exigencia técnica.
                 </p>
                 <p>
-                  En 2020, lanzamos la marca Grúas TORRES para consolidar nuestra presencia en el mercado de servicios
-                  especializados. Hoy, somos reconocidos como líderes en el sector, con una flota moderna de más de 50
-                  grúas y un equipo de profesionales altamente capacitados.
+                  Nos especializamos en izajes, maniobras especiales y movimientos controlados, acompañando a nuestros
+                  clientes en proyectos donde la precisión, la planificación y la seguridad son determinantes. Contamos
+                  con una flota de equipos adecuados a distintas capacidades y escenarios de trabajo, respaldados por
+                  mantenimiento permanente y personal altamente capacitado.
                 </p>
                 <p>
-                  Nuestro compromiso con la excelencia nos ha permitido establecer relaciones duraderas con empresas de
-                  prestigio como Arauco, convirtiéndonos en su socio estratégico para proyectos industriales de gran
-                  envergadura.
+                  La seguridad es un eje central de nuestra operación. Nuestros operadores de grúas están certificados
+                  por una consultora externa independiente, representante de normas IRAM, ASME e IPAF en toda Sudamérica,
+                  garantizando procedimientos alineados a estándares internacionales y a las mejores prácticas del
+                  sector.
+                </p>
+                <p>
+                  A lo largo de los años hemos construido relaciones de confianza basadas en el cumplimiento, la
+                  responsabilidad operativa y el compromiso con cada maniobra, entendiendo que detrás de cada movimiento
+                  hay equipos, procesos y personas que deben ser cuidadas.
+                </p>
+                <p>
+                  Trabajamos con una visión clara: ofrecer soluciones confiables en movimiento de cargas, aportando
+                  experiencia, seguridad y profesionalismo en cada proyecto.
                 </p>
               </div>
             </div>

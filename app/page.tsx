@@ -2,9 +2,20 @@ import { MainLayout } from "@/components/layout/main-layout"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Cake as Crane, Shield, Clock, Users, CheckCircle, Star, ArrowRight, Phone } from "lucide-react"
+import { Cake as Crane, Shield, Clock, Users, CheckCircle, Star, ArrowRight } from "lucide-react"
 
 export default function HomePage() {
+  const renderStaggeredText = (text: string, delayStart = 0) =>
+    text.split("").map((char, idx) => (
+      <span
+        key={`${char}-${idx}`}
+        className="inline-block opacity-0 animate-[fadeInUp_0.5s_ease_forwards]"
+        style={{ animationDelay: `${delayStart + idx * 0.018}s` }}
+      >
+        {char === " " ? "\u00A0" : char}
+      </span>
+    ))
+
   return (
     <MainLayout>
       {/* Hero Section */}
@@ -15,12 +26,16 @@ export default function HomePage() {
             <Badge className="bg-green-500/20 text-green-400 border-green-500/30 mb-6">
               Más de 30 años de experiencia
             </Badge>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance">
-              Soluciones de <span className="text-green-500">Grúas Industriales</span> de Clase Mundial
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance leading-tight">
+              <span className="block">{renderStaggeredText("Soluciones de ", 0)}</span>
+              <span className="block text-green-500">{renderStaggeredText("Grúas Industriales", 0.45)}</span>
+              <span className="block">{renderStaggeredText("de mediano porte", 0.9)}</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto text-pretty">
-              ATC Construcciones opera bajo la marca Grúas TORRES, ofreciendo servicios especializados de grúas para
-              grandes empresas como Arauco. Confiabilidad y seguridad garantizadas.
+            <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto text-pretty leading-relaxed">
+              {renderStaggeredText(
+                "ATC Construcciones opera bajo la marca Grúas TORRES, ofreciendo servicios especializados de grúas para grandes empresas como Arauco. Confiabilidad y seguridad garantizadas.",
+                1.2
+              )}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 text-lg">

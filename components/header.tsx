@@ -15,7 +15,7 @@ export function Header() {
     { name: "Flota", href: "/flota" },
     { name: "Industrias", href: "/industrias" },
     { name: "Empresa", href: "/empresa" },
-    { name: "Mi Pasión", href: "/mi-pasion" },
+    { name: "Colaboración Deportiva", href: "/mi-pasion" },
     { name: "Contacto", href: "/contacto" },
   ]
 
@@ -26,9 +26,13 @@ export function Header() {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center text-xs sm:text-sm">
             <div className="flex items-center gap-3 sm:gap-4">
-              <div className="flex items-center gap-2">
-             
-              
+              <div className="flex items-center gap-2 text-gray-300">
+                <Mail className="h-4 w-4 text-green-400" />
+                <span className="font-medium">info@gruastorres.com</span>
+              </div>
+              <div className="hidden sm:flex items-center gap-2 text-gray-300">
+                <span className="h-1 w-1 rounded-full bg-green-400" />
+                <span className="font-semibold text-green-400">Movemos y elevamos cargas con precisión</span>
               </div>
             </div>
             <div className="hidden md:block text-green-500 font-medium animate-pulse">
@@ -60,7 +64,7 @@ export function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navigation.map((item) => {
-              const isPassion = item.name === "Mi Pasión"
+              const isPassion = item.name === "Colaboración Deportiva"
               return (
                 <Link
                   key={item.name}
@@ -102,7 +106,7 @@ export function Header() {
           <div className="lg:hidden py-4 border-t border-slate-700 animate-fadeIn">
             <nav className="flex flex-col space-y-4 items-center">
               {navigation.map((item) => {
-                const isPassion = item.name === "Mi Pasión"
+                const isPassion = item.name === "Colaboración Deportiva"
                 return (
                   <Link
                     key={item.name}

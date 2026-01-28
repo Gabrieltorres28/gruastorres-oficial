@@ -69,19 +69,7 @@ export default function IndustriasPage() {
         "Equipos de manipulación",
       ],
     },
-    {
-      icon: Wrench,
-      title: "Minería e Industria Pesada",
-      description:
-        "Soluciones robustas para la industria minera y proyectos de gran escala que requieren equipos de alta capacidad.",
-      clients: ["Empresas Mineras", "Industria Pesada"],
-      services: [
-        "Montaje de equipos mineros",
-        "Instalación de estructuras pesadas",
-        "Mantenimiento de plantas",
-        "Proyectos de expansión",
-      ],
-    },
+   
   ]
 
   return (
