@@ -31,25 +31,13 @@ export default function ContactoPage() {
 
   const offices = [
     {
-      city: "Santiago",
-      address: "Av. Industrial 1234, Quilicura",
-      phone: "+56 2 2345 6789",
-      email: "santiago@atcconstrucciones.cl",
-      hours: "Lun-Vie: 8:00-18:00, Sáb: 8:00-14:00",
-    },
-    {
-      city: "Concepción",
-      address: "Av. Pedro Aguirre Cerda 567",
-      phone: "+56 41 234 5678",
-      email: "concepcion@atcconstrucciones.cl",
-      hours: "Lun-Vie: 8:00-18:00, Sáb: 8:00-14:00",
-    },
-    {
-      city: "Valparaíso",
-      address: "Av. Argentina 890, Valparaíso",
-      phone: "+56 32 234 5678",
-      email: "valparaiso@atcconstrucciones.cl",
-      hours: "Lun-Vie: 8:00-18:00",
+      city: "Puerto Piray, Misiones (Argentina)",
+      address: "Calle Alem (ex Colón), CP 3381",
+      phone: "+54 376 4 154 154",
+      email: "contacto@gruastorres.com",
+      hours: "Lun-Vie: 8:00-18:00, Sáb: 8:00-13:00",
+      mapSrc:
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3545.8399399014226!2d-54.715!3d-26.459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f897d6b7c3d2c5%3A0x0000000000000000!2sPuerto%20Piray%2C%20Misiones!5e0!3m2!1ses-419!2sar!4v1700000000000!5m2!1ses-419!2sar",
     },
   ]
 
@@ -125,45 +113,57 @@ export default function ContactoPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Nuestras Oficinas</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Nuestra Oficina</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Contamos con oficinas estratégicamente ubicadas para brindar cobertura nacional
+              Operamos desde Puerto Piray, Misiones (Argentina) para coordinar todas las maniobras y atención 24/7.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {offices.map((office, index) => (
-              <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <CardHeader>
-                  <CardTitle className="text-xl text-slate-900 flex items-center gap-2">
-                    <MapPin className="h-5 w-5 text-green-500" />
-                    {office.city}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div>
-                    <div className="font-medium text-slate-900 mb-1">Dirección:</div>
-                    <div className="text-gray-600 text-sm">{office.address}</div>
-                  </div>
-                  <div>
-                    <div className="font-medium text-slate-900 mb-1">Teléfono:</div>
-                    <div className="text-gray-600 text-sm">{office.phone}</div>
-                  </div>
-                  <div>
-                    <div className="font-medium text-slate-900 mb-1">Email:</div>
-                    <div className="text-gray-600 text-sm">{office.email}</div>
-                  </div>
-                  <div>
-                    <div className="font-medium text-slate-900 mb-1 flex items-center gap-2">
-                      <Clock className="h-4 w-4 text-green-500" />
-                      Horarios:
+          {offices.map((office, index) => (
+            <div
+              key={index}
+              className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch border border-gray-100 rounded-2xl shadow-lg overflow-hidden"
+            >
+              <div className="p-8 bg-white">
+                <Card className="border-0 shadow-none">
+                  <CardHeader>
+                    <CardTitle className="text-2xl text-slate-900 flex items-center gap-2">
+                      <MapPin className="h-5 w-5 text-green-500" />
+                      {office.city}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div>
+                      <div className="font-medium text-slate-900 mb-1">Dirección</div>
+                      <div className="text-gray-700">{office.address}</div>
                     </div>
-                    <div className="text-gray-600 text-sm">{office.hours}</div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                    <div>
+                      <div className="font-medium text-slate-900 mb-1">Teléfono</div>
+                      <div className="text-gray-700">{office.phone}</div>
+                    </div>
+                    <div>
+                      <div className="font-medium text-slate-900 mb-1">Email</div>
+                      <div className="text-gray-700">{office.email}</div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Clock className="h-4 w-4 text-green-500" />
+                      <div className="text-gray-700 text-sm">{office.hours}</div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+              <div className="relative min-h-[320px] bg-gray-100">
+                <iframe
+                  title={`Mapa ${office.city}`}
+                  src={office.mapSrc}
+                  className="absolute inset-0 w-full h-full border-0"
+                  loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
